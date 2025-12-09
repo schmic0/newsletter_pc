@@ -1,0 +1,23 @@
+{
+  "ignition": { "version": "3.3.0" },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/systemd/system/kiosk.service",
+        "mode": 420,
+        "contents": {
+          "source": "data:text/plain;charset=utf-8;base64,IyEvYmluL2Jhc2gKc2V0IC1lCkRPQ0tFUl9JTUFHRS1VUkw9aHR0cHM6Ly95b3VyLXNlcnZlci5jb20vY3VycmVudC5qc29uCndoaWxlIHRydWU7IGRvCiAgVVJMPSQoY3VybCAtcyAkRE9DS0VSX0lNQUdFLVVSTCB8IGpxIC1yIC5jYW52YV91cmwpCiAgcGtpbGwgY2hyb21pdW0gMj4vZGV2L251bGwKICBjaHJvbWl1bSAtLWtpb3NrIC0tbm9lcnJkaWFsb2dzIC0taW5jb2duaXRvICIkVVJMIiAmCnNsZWVwIDYwCmRvbmUK"
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "name": "kiosk.service",
+        "enabled": true,
+        "contents": "[Unit]\nDescription=Kiosk Browser\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nExecStart=/usr/bin/podman run --rm --net=host --env DISPLAY=:0 docker.io/chromium-kiosk:latest\nRestart=always\n\n[Install]\nWantedBy=multi-user.target"
+      }
+    ]
+  }
+}
