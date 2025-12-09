@@ -5,9 +5,8 @@
       {
         "name": "kiosk.service",
         "enabled": true,
-        "contents": "[Unit]\nDescription=Kiosk Browser\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nEnvironment=CONFIG_URL=https://raw.githubusercontent.com/schmic0/canva-slide/refs/heads/main/current.json\nExecStart=/usr/bin/podman run --rm --net=host -e CONFIG_URL=${CONFIG_URL} ghcr.io/kiosk-ai/chromium-kiosk:latest\nRestart=always\n\n[Install]\nWantedBy=multi-user.target"
+        "contents": "[Unit]\nDescription=Canva Kiosk Browser\nAfter=network-online.target\nWants=network-online.target\n\n[Service]\nEnvironment=CONFIG_URL=https://raw.githubusercontent.com/schmic0/canva-slide/main/current.json\nExecStart=/usr/bin/podman run --rm --net=host -e CONFIG_URL=${CONFIG_URL} ghcr.io/kiosk-ai/chromium-kiosk:latest\nRestart=always\n\n[Install]\nWantedBy=multi-user.target"
       }
     ]
   }
 }
-
