@@ -1,5 +1,14 @@
 {
   "ignition": { "version": "3.3.0" },
+  "passwd": {
+    "users": [
+      {
+        "name": "kioskadmin",
+        "passwordHash": "$6$FPG/VsWUZmjbI/dE$0BWH6ylDMXALElVQhGca8x57472vqIvxwY7AC7Ij14LtxRwon8OeNtLAm5AZT86hUjf0VBeAkiD94ihWTuzVM0",
+        "groups": ["wheel"]
+      }
+    ]
+  },
   "systemd": {
     "units": [
       {
